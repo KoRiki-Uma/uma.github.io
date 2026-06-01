@@ -344,9 +344,3 @@ article#post > #post-content {
   content: "\e609";
 }
 /*# sourceMappingURL=july.css.map */
-img {
-  max-width: 600px;
-  width: 100%;
-  height: auto;
-  display: block;
-}
