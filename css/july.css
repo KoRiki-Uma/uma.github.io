@@ -345,7 +345,8 @@ article#post > #post-content {
 }
 /*# sourceMappingURL=july.css.map */
 img {
-  max-width: 100%;
+  max-width: 600px;
+  width: 100%;
   height: auto;
   display: block;
 }
