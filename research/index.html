@@ -151,14 +151,18 @@ mjx-container[display="true"] + br {
   display: none;
 }
 </style></head>
-<body>
+<body data-hide-banner="false">
 
-<div id="banner-outer" class="hidden">
+
+
+<!-- Banner：根据判断加 class -->
+<div id="banner-outer" class="hidden fade-out">
     <div id="banner-image" style="background-image: url()"></div>
     <img src="/uma.github.io/images/uma.jpg" id="avatar">
 </div>
 
-<div id="menu-outer">
+<!-- Menu：根据判断加 class -->
+<div id="menu-outer" class="fade-show">
     <div id="menu-inner">
         
             <a class="false" href="https://koriki-uma.github.io/uma.github.io/index.html">Home</a>
@@ -275,9 +279,25 @@ Fermi data
     
 
 
+<script>
+  $(function () {
+    // 从 body 的 data 属性读取（最可靠，不猜路径）
+    var shouldHide = $('body').data('hide-banner') === true || $('body').data('hide-banner') === 'true';
 
+    if (shouldHide) {
+      // tutorial / research / contact → 隐藏头像 + 菜单上移
+      $('#banner-outer').addClass('fade-out').removeClass('fade-in');
+      $('#menu-outer').addClass('fade-show');
+    } else {
+      // 首页或其他页面 → 渐变显示回来
+      $('#banner-outer').removeClass('fade-out hidden').addClass('fade-in');
+      $('#menu-outer').removeClass('fade-show');
+    }
 
-
+    // 原来的文章页逻辑保留
+    
+  })
+</script>
 
 <script>
   $(function () {
