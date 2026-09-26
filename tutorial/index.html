@@ -200,62 +200,15 @@ mjx-container[display="true"] + br {
 
 
 
-<script>
-  $(function () {
-    var hidePages = ['tutorial', 'research', 'contact'];
-    var shouldHide = hidePages.some(function(p) {
-      return window.location.pathname.toLowerCase().indexOf(p) !== -1;
-    });
 
-    var wasHidden = sessionStorage.getItem('bannerHidden') === 'true';
-    var $banner = $('#banner-outer');
-    var $menu = $('#menu-outer');
 
-    // 辅助函数：临时关闭过渡，瞬间到位
-    function instant(fn) {
-      $banner.css('transition', 'none');
-      $menu.css('transition', 'none');
-      fn();
-      // 强制浏览器重绘
-      $banner[0].offsetHeight;
-      $menu[0].offsetHeight;
-      // 恢复过渡
-      $banner.css('transition', '');
-      $menu.css('transition', '');
-    }
+    <script>
+      $(function () {
+        $('#banner-outer').addClass('fade-out');
+        $('#menu-outer').addClass('fade-show');
+      })
+    </script>
 
-    if (shouldHide) {
-      if (!wasHidden) {
-        // 从首页第一次进入 → 做 fade 隐藏
-        $banner.addClass('fade-out').removeClass('fade-in');
-        $menu.addClass('fade-show');
-      } else {
-        // 三个页面之间切换 → 瞬间隐藏，不动画
-        instant(function() {
-          $banner.addClass('hidden').removeClass('fade-out fade-in');
-          $menu.addClass('fade-show');
-        });
-      }
-      sessionStorage.setItem('bannerHidden', 'true');
-    } else {
-      if (wasHidden) {
-        // 从三个页面回到首页 → 做 fade 显示
-        $banner.removeClass('fade-out hidden').addClass('fade-in');
-        $menu.removeClass('fade-show');
-      } else {
-        // 本来就在首页 → 瞬间保持显示
-        instant(function() {
-          $banner.removeClass('fade-out hidden');
-          $menu.removeClass('fade-show');
-        });
-      }
-      sessionStorage.setItem('bannerHidden', 'false');
-    }
-
-    // 原来文章页逻辑保留
-    
-  })
-</script>
 
 <script>
   $(function () {
