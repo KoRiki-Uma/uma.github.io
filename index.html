@@ -56,7 +56,7 @@
   <h1></h1>
   <h1 id="Jingyi-Ma"><a href="#Jingyi-Ma" class="headerlink" title="Jingyi Ma"></a>Jingyi Ma</h1><p>Master Student (2nd year)</p>
 <p>Center for Astrophysics, Guangzhou University, Guangzhou 510006, China</p>
-<p>Email: <a href="mailto:&#106;&#105;&#110;&#103;&#121;&#105;&#109;&#x61;&#64;&#101;&#46;&#x67;&#122;&#x68;&#117;&#x2e;&#101;&#100;&#x75;&#46;&#x63;&#110;">jingyima@e.gzhu.edu.cn</a> &amp; <a href="mailto:&#x6b;&#x6f;&#x72;&#105;&#107;&#x69;&#45;&#x75;&#109;&#x61;&#x40;&#111;&#117;&#116;&#x6c;&#x6f;&#111;&#x6b;&#46;&#x63;&#111;&#x6d;">koriki-uma@outlook.com</a></p>
+<p>Email: <a href="mailto:&#106;&#105;&#110;&#103;&#x79;&#x69;&#x6d;&#x61;&#64;&#101;&#46;&#103;&#x7a;&#104;&#x75;&#x2e;&#x65;&#100;&#117;&#46;&#99;&#x6e;">jingyima@e.gzhu.edu.cn</a> &amp; <a href="mailto:&#x6b;&#111;&#114;&#x69;&#107;&#105;&#45;&#117;&#109;&#x61;&#64;&#111;&#117;&#116;&#108;&#x6f;&#x6f;&#107;&#46;&#x63;&#111;&#109;">koriki-uma@outlook.com</a></p>
 <br>
 
 <p>TOEFL iBT: 88,  JLPT: N2</p>
@@ -153,34 +153,52 @@ Summer Schools
       return window.location.pathname.toLowerCase().indexOf(p) !== -1;
     });
 
-    // 读取上一次的状态
     var wasHidden = sessionStorage.getItem('bannerHidden') === 'true';
+    var $banner = $('#banner-outer');
+    var $menu = $('#menu-outer');
+
+    // 辅助函数：临时关闭过渡，瞬间到位
+    function instant(fn) {
+      $banner.css('transition', 'none');
+      $menu.css('transition', 'none');
+      fn();
+      // 强制浏览器重绘
+      $banner[0].offsetHeight;
+      $menu[0].offsetHeight;
+      // 恢复过渡
+      $banner.css('transition', '');
+      $menu.css('transition', '');
+    }
 
     if (shouldHide) {
       if (!wasHidden) {
-        // 第一次进入这 3 个页面 → 做 fade 动画
-        $('#banner-outer').addClass('fade-out').removeClass('fade-in');
-        $('#menu-outer').addClass('fade-show');
+        // 从首页第一次进入 → 做 fade 隐藏
+        $banner.addClass('fade-out').removeClass('fade-in');
+        $menu.addClass('fade-show');
       } else {
-        // 已经在这 3 个页面之间切换 → 直接隐藏，不动画
-        $('#banner-outer').addClass('hidden').removeClass('fade-out fade-in');
-        $('#menu-outer').addClass('fade-show');
+        // 三个页面之间切换 → 瞬间隐藏，不动画
+        instant(function() {
+          $banner.addClass('hidden').removeClass('fade-out fade-in');
+          $menu.addClass('fade-show');
+        });
       }
       sessionStorage.setItem('bannerHidden', 'true');
     } else {
       if (wasHidden) {
-        // 从这 3 个页面回到首页 → 做 fade 回来
-        $('#banner-outer').removeClass('fade-out hidden').addClass('fade-in');
-        $('#menu-outer').removeClass('fade-show');
+        // 从三个页面回到首页 → 做 fade 显示
+        $banner.removeClass('fade-out hidden').addClass('fade-in');
+        $menu.removeClass('fade-show');
       } else {
-        // 本来就在显示状态 → 保持正常
-        $('#banner-outer').removeClass('fade-out hidden');
-        $('#menu-outer').removeClass('fade-show');
+        // 本来就在首页 → 瞬间保持显示
+        instant(function() {
+          $banner.removeClass('fade-out hidden');
+          $menu.removeClass('fade-show');
+        });
       }
       sessionStorage.setItem('bannerHidden', 'false');
     }
 
-    // 原来文章页的逻辑保留
+    // 原来文章页逻辑保留
     
   })
 </script>
