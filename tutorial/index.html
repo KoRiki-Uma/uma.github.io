@@ -142,16 +142,12 @@ mjx-container[display="true"] + br {
 </style></head>
 <body>
 
-
-
-<!-- 修改点1：给 banner 加上判断 -->
-<div id="banner-outer" class="hidden fade-out">
+<div id="banner-outer" class="hidden">
     <div id="banner-image" style="background-image: url()"></div>
     <img src="/uma.github.io/images/uma.jpg" id="avatar">
 </div>
 
-<!-- 修改点2：给 menu 加上判断 -->
-<div id="menu-outer" class="fade-show">
+<div id="menu-outer">
     <div id="menu-inner">
         
             <a class="false" href="https://koriki-uma.github.io/uma.github.io/index.html">Home</a>
@@ -202,30 +198,16 @@ mjx-container[display="true"] + br {
     
 
 
-<!-- 修改点3：统一的 JS 控制（替换掉你原来那两个 if） -->
-<script>
-  $(function () {
-    // 需要隐藏的页面关键词（和上面 EJS 保持一致）
-    var hideBannerPages = ['tutorial', 'research', 'contact'];
 
-    var shouldHide = hideBannerPages.some(function(p) {
-      return window.location.pathname.toLowerCase().indexOf(p) !== -1;
-    });
 
-    if (shouldHide) {
-      // 进入 tutorial / research / contact → 隐藏 + 菜单上移
-      $('#banner-outer').addClass('fade-out').removeClass('fade-in');
-      $('#menu-outer').addClass('fade-show');
-    } else {
-      // 回到首页或其他页面 → 渐变显示回来
-      $('#banner-outer').removeClass('fade-out hidden').addClass('fade-in');
-      $('#menu-outer').removeClass('fade-show');
-    }
 
-    // 原来文章页的逻辑保留
-    
-  })
-</script>
+    <script>
+      $(function () {
+        $('#banner-outer').addClass('fade-out')  // or addClass('hidden')
+        $('#menu-outer').addClass('fade-show')   // menu going up
+      })
+    </script>
+
 
 <script>
   $(function () {

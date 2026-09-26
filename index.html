@@ -30,16 +30,12 @@
 <meta name="generator" content="Hexo 8.1.2"></head>
 <body>
 
-
-
-<!-- 修改点1：给 banner 加上判断 -->
-<div id="banner-outer" class="hidden ">
+<div id="banner-outer" class="hidden">
     <div id="banner-image" style="background-image: url()"></div>
     <img src="/uma.github.io/images/uma.jpg" id="avatar">
 </div>
 
-<!-- 修改点2：给 menu 加上判断 -->
-<div id="menu-outer" class="">
+<div id="menu-outer">
     <div id="menu-inner">
         
             <a class="active" href="https://koriki-uma.github.io/uma.github.io/index.html">Home</a>
@@ -60,7 +56,7 @@
   <h1></h1>
   <h1 id="Jingyi-Ma"><a href="#Jingyi-Ma" class="headerlink" title="Jingyi Ma"></a>Jingyi Ma</h1><p>Master Student (2nd year)</p>
 <p>Center for Astrophysics, Guangzhou University, Guangzhou 510006, China</p>
-<p>Email: <a href="mailto:&#x6a;&#105;&#x6e;&#x67;&#121;&#105;&#109;&#x61;&#x40;&#x65;&#x2e;&#x67;&#122;&#104;&#x75;&#46;&#x65;&#100;&#117;&#46;&#x63;&#110;">jingyima@e.gzhu.edu.cn</a> &amp; <a href="mailto:&#107;&#111;&#114;&#x69;&#x6b;&#105;&#45;&#x75;&#109;&#97;&#64;&#111;&#117;&#116;&#108;&#x6f;&#x6f;&#x6b;&#x2e;&#x63;&#111;&#109;">koriki-uma@outlook.com</a></p>
+<p>Email: <a href="mailto:&#106;&#105;&#x6e;&#103;&#x79;&#105;&#109;&#97;&#x40;&#101;&#46;&#103;&#x7a;&#x68;&#x75;&#x2e;&#x65;&#100;&#117;&#46;&#x63;&#x6e;">jingyima@e.gzhu.edu.cn</a> &amp; <a href="mailto:&#x6b;&#x6f;&#x72;&#105;&#107;&#105;&#45;&#x75;&#x6d;&#97;&#x40;&#x6f;&#117;&#x74;&#108;&#x6f;&#111;&#x6b;&#46;&#x63;&#111;&#x6d;">koriki-uma@outlook.com</a></p>
 <br>
 
 <p>TOEFL iBT: 88,  JLPT: N2</p>
@@ -148,30 +144,9 @@ Summer Schools
     
 
 
-<!-- 修改点3：统一的 JS 控制（替换掉你原来那两个 if） -->
-<script>
-  $(function () {
-    // 需要隐藏的页面关键词（和上面 EJS 保持一致）
-    var hideBannerPages = ['tutorial', 'research', 'contact'];
 
-    var shouldHide = hideBannerPages.some(function(p) {
-      return window.location.pathname.toLowerCase().indexOf(p) !== -1;
-    });
 
-    if (shouldHide) {
-      // 进入 tutorial / research / contact → 隐藏 + 菜单上移
-      $('#banner-outer').addClass('fade-out').removeClass('fade-in');
-      $('#menu-outer').addClass('fade-show');
-    } else {
-      // 回到首页或其他页面 → 渐变显示回来
-      $('#banner-outer').removeClass('fade-out hidden').addClass('fade-in');
-      $('#menu-outer').removeClass('fade-show');
-    }
 
-    // 原来文章页的逻辑保留
-    
-  })
-</script>
 
 <script>
   $(function () {
