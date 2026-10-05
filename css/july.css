@@ -351,7 +351,7 @@ article#post > #post-content {
 #page figure.highlight {
   margin: 0 0 16px 0 !important;
   padding: 0 !important;
-  background: #151b23 !important;
+  background: #0d1117 !important;
   border: 1px solid #30363d !important;
   border-radius: 8px !important;
   overflow: hidden !important;
@@ -413,7 +413,7 @@ article#post > #post-content {
   padding: 4px 9px;
   border: 1px solid #484f58;
   border-radius: 6px;
-  background: #21262d;
+  background: rgb(33, 38, 45);
   color: #e6edf3;
   font-family: Arial, sans-serif;
   font-size: 12px;
