@@ -345,34 +345,106 @@ article#post > #post-content {
 }
 /*# sourceMappingURL=july.css.map */
 /* ==========================================
-   GitHub 风格代码块美化 (直接覆盖生效)
+   GitHub 风格代码块
    ========================================== */
 
-/* 1. 代码块外框 (容器) */
 .markdown-body pre,
 pre {
-  background-color: #0d1117 !important; /* GitHub 暗黑背景 */
-  border: 1px solid #30363d !important; /* 边框 */
-  border-radius: 6px !important;       /* 圆角 */
-  padding: 16px !important;
+  background: #0d1117 !important;
+  border: 1px solid #30363d !important;
+  border-radius: 8px !important;
+  padding: 16px 18px !important;
   overflow-x: auto !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
 }
 
-/* 2. 代码文本基础样式 (解决字体细、没有颜色问题) */
 .markdown-body pre code,
 pre code {
-  color: #c9d1d9 !important; /* GitHub 默认浅灰白色字体 */
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace !important;
-  font-weight: 500 !important;   /* 稍微加粗，更饱满 */
+  background: transparent !important;
+  color: #e6edf3 !important;
+  font-family: "JetBrains Mono", "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", monospace !important;
   font-size: 14px !important;
-  line-height: 1.6 !important;
-  letter-spacing: 0.2px !important; /* 稍微拉开间距，显得更圆润 */
-  background: none !important;  /* 消除内部多余背景 */
+  font-weight: 500 !important;
+  line-height: 1.65 !important;
+  letter-spacing: 0 !important;
 }
 
-/* 3. 基础语法高亮补丁 (针对通用高亮标签) */
-pre code span.keyword, pre code .token.keyword { color: #ff7b72 !important; } /* 关键字 (import, def 等) 红色 */
-pre code span.string, pre code .token.string   { color: #a5d6ff !important; } /* 字符串 浅蓝色 */
-pre code span.comment, pre code .token.comment { color: #8b949e !important; } /* 注释 灰色 */
-pre code span.function, pre code .token.function { color: #d2a8ff !important; } /* 函数名 紫色 */
-pre code span.number, pre code .token.number   { color: #79c0ff !important; } /* 数字 亮蓝 */
+/* Python / Bash / Text 等代码的基础颜色 */
+pre code span,
+pre code .token {
+  font-family: inherit !important;
+}
+
+/* 关键词 */
+pre code .keyword,
+pre code .token.keyword,
+pre code .hljs-keyword {
+  color: #ff7b72 !important;
+}
+
+/* 字符串 */
+pre code .string,
+pre code .token.string,
+pre code .hljs-string {
+  color: #a5d6ff !important;
+}
+
+/* 注释 */
+pre code .comment,
+pre code .token.comment,
+pre code .hljs-comment {
+  color: #8b949e !important;
+}
+
+/* 函数 */
+pre code .function,
+pre code .token.function,
+pre code .hljs-title.function_,
+pre code .hljs-function {
+  color: #d2a8ff !important;
+}
+
+/* 数字 */
+pre code .number,
+pre code .token.number,
+pre code .hljs-number {
+  color: #79c0ff !important;
+}
+
+/* 类名 / 类型 */
+pre code .class-name,
+pre code .token.class-name,
+pre code .hljs-title.class_ {
+  color: #ffa657 !important;
+}
+
+/* 操作符 */
+pre code .operator,
+pre code .token.operator,
+pre code .hljs-operator {
+  color: #ff7b72 !important;
+}
+
+/* Bash 命令 */
+pre code .hljs-built_in,
+pre code .token.builtin {
+  color: #ffa657 !important;
+}
+
+/* 代码块中的滚动条 */
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: #0d1117;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
