@@ -344,3 +344,27 @@ article#post > #post-content {
   content: "\e609";
 }
 /*# sourceMappingURL=july.css.map */
+/* Code block test */
+
+#post-content pre {
+  background: #0d1117 !important;
+  color: #e6edf3 !important;
+  padding: 16px 18px !important;
+  border: 1px solid #30363d !important;
+  border-radius: 8px !important;
+  overflow-x: auto !important;
+  font-family: "JetBrains Mono", Consolas, monospace !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+#post-content pre code {
+  background: transparent !important;
+  color: #e6edf3 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  font-family: "JetBrains Mono", Consolas, monospace !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
