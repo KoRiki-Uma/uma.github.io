@@ -344,3 +344,19 @@ article#post > #post-content {
   content: "\e609";
 }
 /*# sourceMappingURL=july.css.map */
+/* 修改代码块（``` ）的背景、圆角和边框 */
+pre code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace !important;
+  font-weight: 500; /* 让字体看起来稍微加粗 */
+  font-size: 14px;
+  line-height: 1.6;
+  letter-spacing: 0.2px; /* 字符间距稍微拉开一点，看起来更圆润 */
+}
+
+/* 调整代码框的整体容器 */
+pre {
+  background-color: #0d1117 !important; /* GitHub 暗黑模式背景色 */
+  border: 1px solid #30363d; /* 细边框 */
+  border-radius: 6px; /* 圆角 */
+  padding: 16px;
+}
