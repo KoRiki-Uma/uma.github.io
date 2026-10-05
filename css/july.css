@@ -399,3 +399,36 @@ article#post > #post-content {
   color: #e6edf3 !important;
   font-family: "JetBrains Mono", "Cascadia Code", Consolas, monospace !important;
 }
+
+/* Code copy button */
+#page figure.highlight {
+  position: relative !important;
+}
+
+#page figure.highlight .copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  padding: 4px 9px;
+  border: 1px solid #484f58;
+  border-radius: 6px;
+  background: #21262d;
+  color: #e6edf3;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+#page figure.highlight .copy-btn:hover {
+  opacity: 1;
+  background: #30363d;
+}
+
+#page figure.highlight .copy-btn.copied {
+  color: #7ee787;
+  border-color: #238636;
+}

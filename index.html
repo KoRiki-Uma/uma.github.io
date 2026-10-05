@@ -56,7 +56,7 @@
   <h1></h1>
   <h1 id="Jingyi-Ma"><a href="#Jingyi-Ma" class="headerlink" title="Jingyi Ma"></a>Jingyi Ma</h1><p>Master Student (3nd year)</p>
 <p>Center for Astrophysics, Guangzhou University, Guangzhou 510006, China</p>
-<p>Email: <a href="mailto:&#x6a;&#105;&#x6e;&#103;&#121;&#105;&#x6d;&#97;&#64;&#101;&#x2e;&#103;&#x7a;&#104;&#117;&#46;&#x65;&#x64;&#x75;&#46;&#x63;&#110;">jingyima@e.gzhu.edu.cn</a> &amp; <a href="mailto:&#107;&#111;&#114;&#x69;&#x6b;&#105;&#45;&#x75;&#x6d;&#x61;&#x40;&#x6f;&#x75;&#116;&#108;&#x6f;&#x6f;&#x6b;&#x2e;&#99;&#x6f;&#109;">koriki-uma@outlook.com</a></p>
+<p>Email: <a href="mailto:&#106;&#105;&#x6e;&#x67;&#121;&#x69;&#x6d;&#97;&#x40;&#101;&#46;&#x67;&#x7a;&#x68;&#x75;&#46;&#101;&#100;&#117;&#46;&#x63;&#x6e;">jingyima@e.gzhu.edu.cn</a> &amp; <a href="mailto:&#x6b;&#x6f;&#x72;&#x69;&#107;&#x69;&#x2d;&#117;&#109;&#97;&#64;&#111;&#x75;&#x74;&#108;&#x6f;&#x6f;&#107;&#46;&#x63;&#111;&#x6d;">koriki-uma@outlook.com</a></p>
 <br>
 
 <p>TOEFL iBT: 88,  JLPT: N2,  GRE physics: 890</p>
@@ -165,4 +165,57 @@ Summer Schools
   })
 </script>
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('#page figure.highlight').forEach(function (block) {
+    if (block.querySelector('.copy-btn')) return;
+
+    const button = document.createElement('button');
+    button.className = 'copy-btn';
+    button.textContent = 'Copy';
+    button.type = 'button';
+    button.setAttribute('aria-label', 'Copy code');
+
+    button.addEventListener('click', async function () {
+      const code = block.querySelector('td.code pre') ||
+                   block.querySelector('pre code') ||
+                   block.querySelector('pre');
+
+      if (!code) return;
+
+      const text = code.innerText.replace(/\n$/, '');
+
+      try {
+        await navigator.clipboard.writeText(text);
+        button.textContent = 'Copied!';
+        button.classList.add('copied');
+        setTimeout(function () {
+          button.textContent = 'Copy';
+          button.classList.remove('copied');
+        }, 1500);
+      } catch (err) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        const success = document.execCommand('copy');
+        textarea.remove();
+
+        button.textContent = success ? 'Copied!' : 'Failed';
+        if (success) {
+          button.classList.add('copied');
+          setTimeout(function () {
+            button.textContent = 'Copy';
+            button.classList.remove('copied');
+          }, 1500);
+        }
+      }
+    });
+
+    block.appendChild(button);
+  });
+});
+</script>
 </html>
