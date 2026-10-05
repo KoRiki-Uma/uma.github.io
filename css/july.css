@@ -356,7 +356,7 @@ pre code {
 /* 调整代码框的整体容器 */
 pre {
   background-color: #0d1117 !important; /* GitHub 暗黑模式背景色 */
-  border: 1px solid #30363d; /* 细边框 */
+  border: 1px solid #ffffff; /* 细边框 */
   border-radius: 6px; /* 圆角 */
   padding: 16px;
 }
