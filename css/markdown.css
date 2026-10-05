@@ -633,3 +633,86 @@
   border-bottom-color: #eee;
 }
 /*# sourceMappingURL=markdown.css.map */
+/* ================================
+   Custom Code Block
+   GitHub Dark + JetBrains Mono
+   ================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+.markdown-body pre,
+.markdown-body .highlight pre {
+  background-color: #0d1117 !important;
+  border: 1px solid #30363d !important;
+  border-radius: 8px !important;
+  padding: 16px 18px !important;
+  margin-top: 0 !important;
+  margin-bottom: 16px !important;
+  overflow-x: auto !important;
+  box-shadow: none !important;
+}
+
+.markdown-body pre code,
+.markdown-body .highlight pre code,
+.markdown-body .hljs {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  color: #e6edf3 !important;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+/* keyword */
+.markdown-body .hljs-keyword,
+.markdown-body .hljs-selector-tag,
+.markdown-body .hljs-name,
+.markdown-body .hljs-attr {
+  color: #ff7b72 !important;
+}
+
+/* string */
+.markdown-body .hljs-string,
+.markdown-body .hljs-template-variable,
+.markdown-body .hljs-type {
+  color: #a5d6ff !important;
+}
+
+/* number */
+.markdown-body .hljs-number,
+.markdown-body .hljs-literal {
+  color: #79c0ff !important;
+}
+
+/* function / title */
+.markdown-body .hljs-title,
+.markdown-body .hljs-section {
+  color: #d2a8ff !important;
+}
+
+/* built-in */
+.markdown-body .hljs-built_in,
+.markdown-body .hljs-builtin-name {
+  color: #ffa657 !important;
+}
+
+/* comment */
+.markdown-body .hljs-comment,
+.markdown-body .hljs-meta {
+  color: #8b949e !important;
+}
+
+/* symbol / operator */
+.markdown-body .hljs-symbol,
+.markdown-body .hljs-operator {
+  color: #ff7b72 !important;
+}
+
+/* normal text */
+.markdown-body .hljs,
+.markdown-body .hljs-subst,
+.markdown-body .hljs-tag {
+  color: #e6edf3 !important;
+}
